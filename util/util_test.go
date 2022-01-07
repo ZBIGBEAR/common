@@ -147,3 +147,13 @@ func BenchmarkTestIsEmpty1(t *testing.B) {
 		assert.True(t, result)
 	}
 }
+
+/*
+压测结果如下
+# go test -bench=.  -benchmem
+result:
+BenchmarkTestIsEmpty-12         34300347                34.67 ns/op            0 B/op          0 allocs/op
+BenchmarkTestIsEmpty1-12        204903328                5.938 ns/op           0 B/op          0 allocs/op
+
+IsEmpty里面用了反射，跟不用反射相比，性能相差将近6倍
+*/
