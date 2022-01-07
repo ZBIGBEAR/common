@@ -97,7 +97,7 @@ func IsEmpty(data interface{}) bool {
 			// struct
 			return false
 		} else {
-			panic("not support type. you can expend by yourself")
+			panic("not support type. you can support by yourself")
 		}
 	}
 }
