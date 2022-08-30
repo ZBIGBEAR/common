@@ -138,9 +138,11 @@ func BenchmarkTestIsEmpty(t *testing.B) {
 		{input: &v12, want: false},
 	}
 
-	for i, testCase := range testCases {
-		result := IsEmpty(testCases[i].input)
-		assert.Equal(t, testCase.want, result)
+	for k := 0; k < t.N; k++ {
+		for i, testCase := range testCases {
+			result := IsEmpty(testCases[i].input)
+			assert.Equal(t, testCase.want, result)
+		}
 	}
 }
 
@@ -183,9 +185,11 @@ func BenchmarkTestIsEmptyV1(t *testing.B) {
 		{input: &v12, want: false},
 	}
 
-	for i, testCase := range testCases {
-		result := IsEmptyV1(testCases[i].input)
-		assert.Equal(t, testCase.want, result)
+	for k := 0; k < t.N; k++ {
+		for i, testCase := range testCases {
+			result := IsEmptyV1(testCases[i].input)
+			assert.Equal(t, testCase.want, result)
+		}
 	}
 }
 
@@ -196,10 +200,10 @@ goos: darwin
 goarch: amd64
 pkg: common/util
 cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
-BenchmarkTestIsEmpty-12         1000000000               0.0000158 ns/op               0 B/op          0 allocs/op
-BenchmarkTestIsEmptyV1-12       1000000000               0.0000190 ns/op               0 B/op          0 allocs/op
+BenchmarkTestIsEmpty-12           120820              9635 ns/op               0 B/op          0 allocs/op
+BenchmarkTestIsEmptyV1-12         103664             11582 ns/op              72 B/op          8 allocs/op
 PASS
-ok      common/util     2.538s
+ok      common/util     5.149s
 
-性能并没有什么差别
+性能有一些差别
 */
