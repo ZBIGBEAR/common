@@ -159,8 +159,8 @@ func BenchmarkTestIsEmptyV1(t *testing.B) {
 	v12 := float64(0.01)
 
 	testCases := []TestCase{
-		{input: v1, want: false},
-		{input: &v1, want: false},
+		{input: v1, want: true},
+		{input: &v1, want: true},
 		{input: v2, want: false},
 		{input: &v2, want: false},
 		{input: v3, want: true},
@@ -184,7 +184,7 @@ func BenchmarkTestIsEmptyV1(t *testing.B) {
 	}
 
 	for i, testCase := range testCases {
-		result := IsEmpty(testCases[i].input)
+		result := IsEmptyV1(testCases[i].input)
 		assert.Equal(t, testCase.want, result)
 	}
 }
@@ -192,9 +192,14 @@ func BenchmarkTestIsEmptyV1(t *testing.B) {
 /*
 压测结果如下
 # go test -bench=.  -benchmem
-result:
-BenchmarkTestIsEmpty-12         34300347                34.67 ns/op            0 B/op          0 allocs/op
-BenchmarkTestIsEmpty1-12        204903328                5.938 ns/op           0 B/op          0 allocs/op
+goos: darwin
+goarch: amd64
+pkg: common/util
+cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+BenchmarkTestIsEmpty-12         1000000000               0.0000158 ns/op               0 B/op          0 allocs/op
+BenchmarkTestIsEmptyV1-12       1000000000               0.0000190 ns/op               0 B/op          0 allocs/op
+PASS
+ok      common/util     2.538s
 
-IsEmpty里面用了反射，跟不用反射相比，性能相差将近6倍
+性能并没有什么差别
 */
