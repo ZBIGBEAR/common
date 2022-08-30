@@ -10,6 +10,7 @@ require (
 )
 
 require (
+	github.com/BurntSushi/locker v0.0.0-20171006230638-a6e239ea1c69
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
 	github.com/golang/mock v1.3.1 // indirect

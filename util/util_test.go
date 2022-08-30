@@ -100,51 +100,92 @@ func TestIsEmpty(t *testing.T) {
 }
 
 func BenchmarkTestIsEmpty(t *testing.B) {
-	// 结构体指针对象为空
-	var tc1 *TestCase
+	v1 := false
+	v2 := true
+	var v3 *bool
+	v4 := int(0)
+	var v5 *int
+	v6 := int64(0)
+	var v7 *int64
+	v8 := ""
+	var v9 *string
+	v10 := "test"
+	v11 := float64(0.00)
+	v12 := float64(0.01)
 
-	// 结构体对象不为空
-	tc2 := TestCase{}
+	testCases := []TestCase{
+		{input: v1, want: false},
+		{input: &v1, want: false},
+		{input: v2, want: false},
+		{input: &v2, want: false},
+		{input: v3, want: true},
+		{input: v4, want: true},
+		{input: &v4, want: true},
+		{input: v5, want: true},
+		{input: int(1), want: false},
+		{input: v6, want: true},
+		{input: &v6, want: true},
+		{input: v7, want: true},
+		{input: int64(1), want: false},
+		{input: v8, want: true},
+		{input: &v8, want: true},
+		{input: v9, want: true},
+		{input: v10, want: false},
+		{input: &v10, want: false},
+		{input: v11, want: true},
+		{input: &v11, want: true},
+		{input: v12, want: false},
+		{input: &v12, want: false},
+	}
 
-	// 结构体指针为空
-	tc3 := &tc2
-	tc3 = nil
-
-	for i := 0; i < t.N; i++ {
-		result := IsEmpty(tc1)
-		assert.True(t, result)
-
-		// 结构体指针对象不为空
-		result = IsEmpty(&tc2)
-		assert.False(t, result)
-
-		result = IsEmpty(tc3)
-		assert.True(t, result)
+	for i, testCase := range testCases {
+		result := IsEmpty(testCases[i].input)
+		assert.Equal(t, testCase.want, result)
 	}
 }
 
-func BenchmarkTestIsEmpty1(t *testing.B) {
-	// 结构体指针对象为空
-	var tc1 *TestCase
+func BenchmarkTestIsEmptyV1(t *testing.B) {
+	v1 := false
+	v2 := true
+	var v3 *bool
+	v4 := int(0)
+	var v5 *int
+	v6 := int64(0)
+	var v7 *int64
+	v8 := ""
+	var v9 *string
+	v10 := "test"
+	v11 := float64(0.00)
+	v12 := float64(0.01)
 
-	// 结构体对象不为空
-	tc2 := TestCase{}
+	testCases := []TestCase{
+		{input: v1, want: false},
+		{input: &v1, want: false},
+		{input: v2, want: false},
+		{input: &v2, want: false},
+		{input: v3, want: true},
+		{input: v4, want: true},
+		{input: &v4, want: true},
+		{input: v5, want: true},
+		{input: int(1), want: false},
+		{input: v6, want: true},
+		{input: &v6, want: true},
+		{input: v7, want: true},
+		{input: int64(1), want: false},
+		{input: v8, want: true},
+		{input: &v8, want: true},
+		{input: v9, want: true},
+		{input: v10, want: false},
+		{input: &v10, want: false},
+		{input: v11, want: true},
+		{input: &v11, want: true},
+		{input: v12, want: false},
+		{input: &v12, want: false},
+	}
 
-	// 结构体指针为空
-	tc3 := &tc2
-	tc3 = nil
-
-	for i := 0; i < t.N; i++ {
-		result := tc1 == nil
-		assert.True(t, result)
-
-		// 结构体指针对象不为空
-		v := &tc2
-		result = v == nil
-		assert.False(t, result)
-
-		result = tc3 == nil
-		assert.True(t, result)
+	for i, testCase := range testCases {
+		result := IsEmpty(testCases[i].input)
+		assert.Equal(t, testCase.want, result)
 	}
 }
 
