@@ -5,14 +5,21 @@ go 1.17
 require (
 	github.com/apache/rocketmq-client-go/v2 v2.1.0
 	github.com/pkg/errors v0.9.1
-	github.com/stretchr/testify v1.7.0
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
+	github.com/robertkrimen/otto v0.2.1
+	github.com/stretchr/testify v1.8.1
+	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
+)
+
+require (
+	golang.org/x/text v0.4.0 // indirect
+	gopkg.in/sourcemap.v1 v1.0.5 // indirect
 )
 
 require (
 	github.com/BurntSushi/locker v0.0.0-20171006230638-a6e239ea1c69
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/emirpasic/gods v1.12.0 // indirect
+	github.com/fatih/structs v1.1.0
 	github.com/golang/mock v1.3.1 // indirect
 	github.com/json-iterator/go v1.1.9 // indirect
 	github.com/konsorten/go-windows-terminal-sequences v1.0.1 // indirect
@@ -25,8 +32,8 @@ require (
 	github.com/tidwall/pretty v0.0.0-20190325153808-1166b9ac2b65 // indirect
 	go.uber.org/atomic v1.5.1 // indirect
 	golang.org/x/lint v0.0.0-20190930215403-16217165b5de // indirect
-	golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a // indirect
-	golang.org/x/tools v0.0.0-20191029041327-9cc4af7d6b2c // indirect
-	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
+	golang.org/x/tools v0.1.12 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	stathat.com/c/consistent v1.0.0 // indirect
 )
