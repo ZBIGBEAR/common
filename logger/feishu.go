@@ -1,10 +1,10 @@
 package logger
 
 import (
-	"common/http"
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/ZBIGBEAR/common/http"
 	"github.com/pkg/errors"
 )
 
