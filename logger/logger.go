@@ -1,9 +1,9 @@
 package logger
 
 import (
-	"common/consts"
 	"context"
 	"fmt"
+	"github.com/ZBIGBEAR/common/consts"
 	"github.com/k0kubun/pp/v3"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
